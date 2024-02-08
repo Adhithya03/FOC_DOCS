@@ -47,6 +47,11 @@ Obviously, when simulating the system on our **LAPTOP**, we don't need hardware-
 
 > Note, you have to imagine yourself as if you are sitting inside the C2000 microcontroller, and the receive means you are receiving something from the computer.
 
+
+We now back off from simuation subsystem and go up in a level we see the 2 block again
+![alt text](image-3.png)
+
+let's go in Code-gen subsyste.
 #### Code-gen subsystem
 
 ![alt text](image-5.png)
