@@ -1,6 +1,3 @@
-# C2000
+# Sensorless FOC ACIM model walkthrough.
 
-### ADC
-### ePWM
-### Serial Communication
-### 
+![alt text](image.png)
