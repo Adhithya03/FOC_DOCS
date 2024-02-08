@@ -26,7 +26,7 @@ Before that, notice the little icon with some sort of stacked squares?
 
 Since Simulink offers some hardware-specific blocks for deployment and general simulation tools all in one package, we as users need to decide when to use which.
 
-Obviously, when simulating the system on our system, we don't need hardware-specific blocks, but when we are deploying, we, of course, do need. Once we get in to see what is actually inside this block, we will get a clearer picture.
+Obviously, when simulating the system on our **LAPTOP**, we don't need hardware-specific blocks, but when we are deploying, we, of course, do need. Once we get in to see what is actually inside this block, we will get a clearer picture.
 
 ![alt text](image-3.png)
 
