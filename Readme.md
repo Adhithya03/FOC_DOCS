@@ -41,7 +41,7 @@ Obviously, when simulating the system on our **LAPTOP**, we don't need hardware-
 - Now we have entered the **simulation subsystem** block, we see there are **two** function blocks connected to a mux, which is then connected to a port 1, which is a hardware interrupt HW_INT.
 
 - **f() ADCINT1**
-  - The ADC int1 function is an interrupt service routine that will be triggered by the ADC, Analog to Digital Converter, in real hardware. In our case, the ADC is connected to the motor terminal, measuring the current. We will see what will happen after this interrupt is generated and we go to the actual control system of the field-oriented control.
+  - The ADC int1 function is an interrupt service routine that will be triggered by the ADC, Analog to Digital Converter, in real hardware. In our case, the ADC is connected to the motor terminal, measuring the current. (don't worry about it for now.)
 - **f() SCI_Rx_int**
   - Here SCI is Serial Communication Interface, RX stands for reception, and INT stands for interrupt. So, this interrupt service routine will be called once we change any values, like the **desired motor speed** (which we will do from our laptop) that we would like to reflect in the motor, right? Thus, we need to stop all of our work, read what came on the serial communication, and update the control inputs.
 
