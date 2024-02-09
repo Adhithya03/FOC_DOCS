@@ -15,12 +15,11 @@ There's a lot to unpack here, but don't worry. Follow the numbered references in
 1. **Function Definition**: Placing this block defines our current system as a function, allowing us to determine when this entire system will trigger execution. The Serial receive will only execute when the C2000 microcontroller detects changes in the control inputs, such as alterations in the desired speed from the host computer or laptop. Therefore, this function doesn't need to run every single time step; it only needs to run if there are signals coming through the serial channel. This is why it is called an interrupt service routine, which will only execute when there is an interrupt. In our case, our interrupt is receiving something on our serial communication channel, specifically SCI module A (see: [HW_interrupt block](./HW_Interrupt.md) on how this interrupt is generated).
 2. **Code Generation and Simulation Modes**: The stacked squares at number **2** indicate that this block will run differently in code generation and simulation mode.
 3. **Data Type-Dependent Operation**: The stacked squares at number **3** indicate that this block will run different subsystems depending on the data type it receives, such as fixed point and floating point.
-4. **Control Signals and unParse Block**: The host computer may send different control inputs to the C2000 microcontroller. In this model, four different control signals have been chosen: speed reference, enabling the system, enabling FWC, and debug signals. These four signals will be sent by the host computer. Additionally, there is a block called **unParse**, which, as the name implies, parses or unpacks the data into three different control signals, or the three different control signals are de-multiplexed.
-
+4. **Control Signals and unParse Block**: We will look at this later.
 
 ### SCI_Rx (Codegen)
 
-![alt text](image-9.png)
+![alt text](image-12.png)
 
 Here we see two subsystems, which have the exact same hardware block inside them and it gives its outputs to the port 1, just with a small modification in the block parameters in the data type column.
 
