@@ -1,42 +1,63 @@
-## Sensorless FOC ACIM Model Walkthrough
+# Sensorless FOC ACIM Model Walkthrough
 
-*alt text: image.png*
+![alt text](image.png)
 
-* **Important Note:**  This model undergoes transformation from block diagram --> C code --> machine code before executing on a C2000 microcontroller.
+We need to understand that this model will be converted from a block diagram to C code, then to machine code, and will be sent to the C2000 where it will execute.
 
-### Exploring the 'HW_Interrupt' Block
+Let's dive into one block and explore its child blocks in depth.
 
-*alt text: image-1.png*
+### HW_Interrupt
 
-The stacked squares icon in the 'HW_Interrupt' block signals different behaviors in:
+![alt text](image-1.png)
 
-* **Simulation Mode:** Activated when you click the green 'Run' button within Simulink.
-* **Code Generation Mode:**  Employed when creating C code specifically intended for the C2000 microcontroller.
+Notice the HW_Interrupt block? Let's delve into it!
 
-Simulink offers a mix of hardware-specific blocks (for deployment) and general simulation tools, prompting us to select accordingly.
+![alt text](image-2.png)
 
-*alt text: image-3.png*
+Before we proceed, did you notice the little icon with some sort of stacked squares?
 
-Within 'HW_Interrupt', we discover two sub-subsystems dedicated to code generation and simulation.  It's worth noting that none of the blocks have a direct link to 'HW_INT Port 1'; Simulink handles this routing based on our actions.
+- This icon indicates that this block will behave differently when operated in **simulation mode** and differently in **code generation mode**.
 
-### Simulation Subsystem
+##### Simulation Mode
+- As the name suggests, this is the mode when the user presses the Green Run button in Simulink.
 
-*alt text: image-4.png*
+##### Code Generation Mode
+- This mode is activated when we are trying to generate C code for the C2000 and deploy it to hardware.
 
-Inside the simulation subsystem:
+Since Simulink offers both hardware-specific blocks for deployment and general simulation tools in one package, we as users need to decide when to use which.
 
-* **f() ADCINT1:** An interrupt service routine (ISR) set off by the actual  ADC (Analog-to-Digital Converter).  For simplicity, think of the ADC as measuring motor currents.
+Obviously, when simulating the system on our **LAPTOP**, we don't need hardware-specific blocks, but when deploying, we certainly do. Once we delve into what is actually inside this block, we will get a clearer picture.
 
-* **f() SCI_Rx_int:** This ISR reacts when we make adjustments from our laptop (e.g., setting a target motor speed). It temporarily halts other operations, reads incoming serial communication, and modifies control inputs as needed. 
+![alt text](image-3.png)
 
-* **Key Point:** Pretend you're the C2000 microcontroller – "receiving" data implies  getting it from the computer.
+- We are now one level deeper, as mentioned earlier, there are two **sub-subsystems**, one for code generation and one for simulation.
 
-### Code-gen Subsystem
+- Notice that *none* of the blocks are connected to **HW_INT Port 1**. That's because Simulink will automatically route the appropriate block to **HW_INT Port 1** depending on what the *user* is attempting to do, whether code generation or just simulation on our laptop.
 
-*alt text: image-5.png*
+#### Simulation Subsystem
 
-* **HWI_ADCB1_INT:**  Similar in function to the simulation ISR, but tailored for hardware. The C2000 possesses several ADC modules; 'ADC B1' is responsible for this particular interrupt.
+![alt text](image-4.png)
 
-* **HWI_SCIA_RX_INT:** We've opted to transmit control signals to the C2000 via the SCI-A channel.   Consequently, data arriving on SCI-A activates this interrupt, forwarding changes to the embedded control system.
+- Upon entering the **simulation subsystem** block, we see there are **two** function blocks connected to a mux, which is then connected to port 1, a hardware interrupt HW_INT.
 
-**Ready to dissect another block? Let me know!** 
+- **f() ADCINT1**
+  - The ADCINT1 function is an interrupt service routine that will be triggered by the ADC (Analog to Digital Converter) in real hardware. In our case, the ADC is connected to the motor terminal, measuring the current. (Don't worry about it for now.)
+- **f() SCI_Rx_int**
+  - Here, SCI stands for Serial Communication Interface, RX for reception, and INT for interrupt. So, this interrupt service routine will be called once we change any values, like the **desired motor speed** (which we will do from our laptop) that we would like to reflect in the motor. Thus, we need to stop all of our work, read what came on the serial communication, and update the control inputs.
+
+> Imagine yourself as if you are sitting inside the C2000 microcontroller, and receiving means you are receiving something from the computer.
+
+Backing out from the simulation subsystem and going up a level, we see the two blocks again.
+![alt text](image-3.png)
+
+Let's enter the Code-gen subsystem.
+#### Code-gen Subsystem
+
+![alt text](image-5.png)
+
+- **HWI_ADCB1_INT**
+  - Functionally, it is the same thing, but here we have a special hardware block, as you can see in the image. HWI stands for hardware interrupt. The C2000 microcontroller has 3 ADC modules; here, the interrupt is generated by the **ADC B1** module.
+
+  - When we double-click on that block, we see two parameters: the number of events to serve and the Simulink task priority, which we don't need to bother with for now.
+- **HWI_SCIA_RX_INT**
+  - Just as there are different ADC modules, we also have different SCI or Serial Communication Interface modules. Here, we have chosen to transmit our control signals and inputs to the C2000 via the SCI channel A. So, the reception of any data on the SCI_A channel will generate an interrupt, and the changes will be transmitted to the Control system running inside.
