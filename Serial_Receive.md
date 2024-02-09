@@ -1,21 +1,21 @@
 Make sure you have read the [HW\_Interrupt block](./HW\_Interrupt.md), as we will build upon it.
 
-# SCI\_Rx\_INT()
+# SCI_Rx_INT()
 
 ![alt text](image-7.png)
 
-Now we shall delve into the Serial Receive Block. This block will handle the function of obtaining data from the laptop or host computer regarding control inputs and updating the global variables, which will then be picked up by the control system to update the desired speed and other control inputs.
+Let's delve into the Serial Receive Block, responsible for obtaining data from the laptop or host computer regarding control inputs and updating global variables. This information is then utilized by the control system to update the desired speed and other control inputs.
 
-Let's double click and go in!
+Double-clicking on the block takes us inside.
 
 ![alt text](image-8.png)
 
-There's a lot to unpack here. Don't worry, follow the numbered references in the image as I explain.
+There's a lot to unpack here, but don't worry. Follow the numbered references in the image as I explain:
 
-1. At number **1**, placing that block defines our current system as a function, and we can determine when this entire system will trigger execution. As mentioned earlier, the Serial receive will only execute when the C2000 microcontroller detects any changes in the control inputs, such as altering the desired speed from the host computer or laptop. Therefore, this function doesn't need to run every single time step; it only needs to run if there are signals coming through the serial channel. This is why it is called an interrupt service routine, which will only execute when there is an interrupt. In our case, our interrupt is receiving something on our serial communication channel, specifically SCI module A (see: [HW\_interrupt block](./HW\_Interrupt.md) on how this interrupt is generated).
-2. At number **2** in the image, the same stacked squares indicate that this will run differently in code generation and simulation mode.
-3. At number **3**, it looks like stacked squares again, indicating that it has two different modes of operation, but not on code generation and simulation as we've seen earlier. Instead, these stacked squares indicate that it will run different subsystems depending on the data type it receives, such as fixed point and floating point.
-4. At number **4**, as I mentioned earlier, the host computer may send different control inputs to the C2000 microcontroller. In this model, they have chosen four different control signals like speed reference, enabling the system, enabling FWC, and debug signals. These are the four signals that will be sent by the host computer. Additionally, there is a block called **unParse**, which, as the name implies, parses or unpacks the data into three different control signals, or the three different control signals are de-multiplexed.
+1. **Function Definition**: Placing this block defines our current system as a function, allowing us to determine when this entire system will trigger execution. The Serial receive will only execute when the C2000 microcontroller detects changes in the control inputs, such as alterations in the desired speed from the host computer or laptop. Therefore, this function doesn't need to run every single time step; it only needs to run if there are signals coming through the serial channel. This is why it is called an interrupt service routine, which will only execute when there is an interrupt. In our case, our interrupt is receiving something on our serial communication channel, specifically SCI module A (see: [HW_interrupt block](./HW_Interrupt.md) on how this interrupt is generated).
+2. **Code Generation and Simulation Modes**: The stacked squares at number **2** indicate that this block will run differently in code generation and simulation mode.
+3. **Data Type-Dependent Operation**: The stacked squares at number **3** indicate that this block will run different subsystems depending on the data type it receives, such as fixed point and floating point.
+4. **Control Signals and unParse Block**: The host computer may send different control inputs to the C2000 microcontroller. In this model, four different control signals have been chosen: speed reference, enabling the system, enabling FWC, and debug signals. These four signals will be sent by the host computer. Additionally, there is a block called **unParse**, which, as the name implies, parses or unpacks the data into three different control signals, or the three different control signals are de-multiplexed.
 
 
 ### SCI_Rx (Codegen)
@@ -26,29 +26,29 @@ Here we see two subsystems, which have the exact same hardware block inside them
 
 ![alt text](image-10.png)
 
-- What we have seen so far is just the interrupt generation, finally the data gets to a hardware specific block which is a CIRCV which actually receives the data and stores it in the serial buffer which will be read by the C2000 microcontroller.
+- The interrupt generation is complete, and the data is finally received by a hardware-specific block called CIRCV, which actually receives the data and stores it in the serial buffer, which will be read by the C2000 microcontroller.
 
 ### SCI_Rx (Simulation)
 
 ![alt text](image-11.png)
 
-- Using the hardware serial reception block above was much easier. Now we have to emulate how the data will be received with all the nuances of data type conversion when running in a simulation environment is little more involved. 
+- Using the hardware serial reception block above was much easier. Now we have to emulate how the data will be received with all the nuances of data type conversion when running in a simulation environment, which is a bit more involved.
 
-- Here, we need to actually create how the data is transmitted serially from her host computer. So, for that, we have some blocks like step input constant. We need to convert it to proper data type and mux it, then again converting into proper data type.
- 
+- Here, we need to create how the data is transmitted serially from the host computer. We have blocks like step input constant for this purpose. We need to convert it to the proper data type, mux it, and then convert it back to the proper data type.
 
-- We have completed seeing what's inside **SCI_Rx** (block 2)
+
+- We have now completed our exploration of what's inside the **SCI_Rx** (block 2).
 
 ![alt text](image-8.png)
 
-- **Data_Conditionioning_Rx** block 3 just data type conversion of recevied data from host computer in case of code-gen (or) artifically emulated serial data as it will get from host computer.
+- **Data_Conditioning_Rx** (block 3) simply performs data type conversion of received data from the host computer in case of code generation or artificially emulated serial data as it would be received from the host computer.
 
-#### unParse block
+#### unParse Block
 
-As you might already know the serial communication has the data arranged in time. We already saw it in the emulation where we mux the data. So we have to de-mux it to extract the data which has been sent. That is what is done here.
+As you might already know, serial communication has data arranged in time. We saw this in the emulation where we mux the data. So, we need to de-mux it to extract the data that has been sent. That is what is done here.
 
-#### Data store write block
+#### Data Store Write Block
 
-See the number 4 in the image, and 4 control inputs are stores in a special block called **data store write block** this is not specific to C2000, it is a general simulink block.
+The four control inputs are stored in a special block called **data store write block** (number 4 in the image). This block is not specific to C2000; it is a general Simulink block.
 
-Now this is a self-explanatory, the data demuxed and the speed reference which came directly gets stored in a global variable sort of a block which will be read by the control system and will be updated wherever it is referenced.
+This is self-explanatory: the demultiplexed data and the speed reference, which came directly, are stored in a global variable-like block that will be read by the control system and updated wherever it is referenced.
