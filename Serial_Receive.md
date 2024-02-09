@@ -37,10 +37,18 @@ Here we see two subsystems, which have the exact same hardware block inside them
 - Here, we need to actually create how the data is transmitted serially from her host computer. So, for that, we have some blocks like step input constant. We need to convert it to proper data type and mux it, then again converting into proper data type.
  
 
-- We have completed seeing what's inside **block 2**
+- We have completed seeing what's inside **SCI_Rx** (block 2)
+
 ![alt text](image-8.png)
 
-- Now let's 
+- **Data_Conditionioning_Rx** block 3 just data type conversion of recevied data from host computer in case of code-gen (or) artifically emulated serial data as it will get from host computer.
 
+#### unParse block
 
-Let's go into
+As you might already know the serial communication has the data arranged in time. We already saw it in the emulation where we mux the data. So we have to de-mux it to extract the data which has been sent. That is what is done here.
+
+#### Data store write block
+
+See the number 4 in the image, and 4 control inputs are stores in a special block called **data store write block** this is not specific to C2000, it is a general simulink block.
+
+Now this is a self-explanatory, the data demuxed and the speed reference which came directly gets stored in a global variable sort of a block which will be read by the control system and will be updated wherever it is referenced.
