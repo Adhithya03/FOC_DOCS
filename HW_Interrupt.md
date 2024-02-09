@@ -1,11 +1,3 @@
-# Sensorless FOC ACIM Model Walkthrough
-
-![alt text](image.png)
-
-We need to understand that this model will be converted from a block diagram to C code, then to machine code, and will be sent to the C2000 where it will execute.
-
-Let's dive into one block and explore its child blocks in depth.
-
 ### HW_Interrupt
 
 ![alt text](image-1.png)
