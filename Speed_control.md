@@ -68,19 +68,19 @@ Here are the equations used in the code (extracted from the code for easy refere
 
 $$L_{r} = L_{lr} + L_{m}$$
 
-$$T_{base\_PU} = \frac{3}{2} \cdot p \cdot \frac{L_{m}}{L_{r}} \cdot FluxRated \cdot I_{base\_PU}$$
+$$T_{base\_{PU}} = \frac{3}{2} \cdot p \cdot \frac{L_{m}}{L_{r}} \cdot FluxRated \cdot I_{base\_{PU}}$$
 
-$$N_{base\_PU} = \frac{60}{2\pi}$$
+$$N_{base\_{PU}} = \frac{60}{2\pi}$$
 
-$$Iq_{gain} = \frac{T_{base\_PU}}{\left(\frac{3}{2} \cdot p \cdot \frac{L_{m}^2}{L_{r}}\right) \cdot I_{base\_PU}^2}$$
+$$Iq_{gain} = \frac{T_{base\_{PU}}}{\left(\frac{3}{2} \cdot p \cdot \frac{L_{m}^2}{L_{r}}\right) \cdot I_{base\_{PU}}^2}$$
 
-$$Id_{ref} = \frac{FluxRated}{L_{m}} \cdot I_{base\_PU}$$
+$$Id_{ref} = \frac{FluxRated}{L_{m}} \cdot I_{base\_{PU}}$$
 
-$$Id_{gain} = Id_{ref} \cdot \frac{N_{rated}}{N_{base\_PU}}$$
+$$Id_{gain} = Id_{ref} \cdot \frac{N_{rated}}{N_{base\_{PU}}}$$
 
-$$Slip\_speed = \frac{N_{base} - N_{rated}}{N_{base\_PU}}$$
+$$Slip\_{speed} = \frac{N_{base} - N_{rated}}{N_{base\_{PU}}}$$
 
-$$I_{max} = \frac{I_{max}}{I_{base\_PU}}$$
+$$I_{max} = \frac{I_{max}}{I_{base\_{PU}}}$$
 
 
 ```matlab
