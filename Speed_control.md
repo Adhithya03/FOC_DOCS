@@ -133,7 +133,39 @@ switch this.Units
         catch
             %     Do nothing
         end
-        dlgSett.N_base_PU = ac
+        dlgSett.N_base_PU = acim.N_base;
+        dlgSett.T_base_PU = (3/2)*acim.p*(acim.Lm/acim.Lr)*acim.FluxRated*dlgSett.I_base_PU;
+        set_param(objHandle,'MaskDisplay','mcb.internal.drawIcons(''ACIM Control Reference'',1);');
+    case 'SI Units'
+        dlgSett.I_base_PU = 1;
+        dlgSett.N_base_PU = (60/(2*pi));
+        dlgSett.T_base_PU = 1;
+        set_param(objHandle,'MaskDisplay','mcb.internal.drawIcons(''ACIM Control Reference'',2);');
+end
+
+dlgSett.Iq_gain     = (dlgSett.T_base_PU)/(((3/2)*acim.p*(acim.Lm^2/acim.Lr))*(dlgSett.I_base_PU^2));
+dlgSett.Id_ref      = (acim.FluxRated/(acim.Lm))/dlgSett.I_base_PU;
+dlgSett.Id_gain     = (dlgSett.Id_ref)*(acim.N_rated/dlgSett.N_base_PU);
+dlgSett.Slip_speed  = (acim.N_base - acim.N_rated)/dlgSett.N_base_PU;
+dlgSett.I_max       = acim.I_max/dlgSett.I_base_PU;
+
+%% Update Base Value for Torque
+
+%Checking updated value
+newValue = num2str(dlgSett.T_base_PU);
+oldValue = get_param(sys,'T_base');
+
+if ~strcmp(oldValue, newValue)
+    mEnables(10) = {'on'};
+    set_param(objHandle,'MaskEnables',mEnables);
+    
+    set_param(sys,'T_base',num2str(dlgSett.T_base_PU));
+    
+    mEnables(10) = {'off'};
+    set_param(objHandle,'MaskEnables',mEnables);
+end
+
+end
 ```
 
 
