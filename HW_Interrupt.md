@@ -1,6 +1,8 @@
 ### HW Interrupt: A Closer Look
 
-Have you noticed the HW\_Interrupt block in the image? Let's dive deeper into it!
+Let's dive deeper into this block.
+
+
 
 ![alt text](image-1.png)
 
@@ -15,7 +17,7 @@ Since Simulink offers both hardware-specific blocks for deployment and general s
 
 When simulating the system on our laptop, we don't need hardware-specific blocks. However, when deploying, we certainly do. Once we delve into what is actually inside this block, we will get a clearer picture.
 
-![alt text](image-3.png)
+![alt text](image-17.png)
 
 We are now one level deeper. As mentioned earlier, there are two sub-subsystems: one for code generation and one for simulation. Notice that none of the blocks are connected to HW\_INT Port 1. That's because Simulink will automatically route the appropriate block to HW\_INT Port 1 depending on what the user is attempting to do, whether code generation or just simulation on our laptop.
 

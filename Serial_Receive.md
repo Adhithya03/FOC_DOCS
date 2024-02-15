@@ -6,7 +6,10 @@ Make sure you have read the [HW\_Interrupt block](./HW\_Interrupt.md), as we wil
 
 Let's delve into the Serial Receive Block, responsible for obtaining data from the laptop or host computer regarding control inputs and updating global variables. This information is then utilized by the control system to update the desired speed and other control inputs.
 
+![alt text](image-15.png)
+
 Double-clicking on the block takes us inside.
+
 
 ![alt text](image-8.png)
 
