@@ -66,12 +66,22 @@ The below code is from the ACIMControlReferenceCb.m file which is the callback f
 Here are the equations used in the code (extracted from the code for easy reference)
 
 $$L_r = L_{lr} + L_m$$
+
+
 $$T_{base\_PU} = \frac{3}{2} \cdot p \cdot \frac{L_m}{L_r} \cdot FluxRated \cdot I_{base\_PU}$$
+
+
 $$N_{base\_PU} = \frac{60}{2\pi}$$
+
+
 $$Iq_{gain} = \frac{T_{base\_PU}}{\left(\frac{3}{2} \cdot p \cdot \frac{L_m^2}{L_r}\right) \cdot I_{base\_PU}^2}$$
+
 $$Id_{ref} = \frac{FluxRated}{L_m} \cdot I_{base\_PU}$$
+
 $$Id_{gain} = Id_{ref} \cdot \frac{N_{rated}}{N_{base\_PU}}$$
+
 $$Slip\_speed = \frac{N_{base} - N_{rated}}{N_{base\_PU}}$$
+
 $$I_{max} = \frac{I_{max}}{I_{base\_PU}}$$
 
 ```matlab
