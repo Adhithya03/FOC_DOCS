@@ -58,6 +58,84 @@ ACIM Control reference, This is inbuilt block in the ACIM Control library which 
 
 As you can see this block takes a lot of machine specific parameters like rated flux, poles, rated speed, inductances and generates the Id and Iq reference values.
 
+ACIM Control reference computes it's internal Id and Iq gains based on the paramters we provide using the dialog box, the below code is exacly how it computes the gains.
+
+The below code is from the ACIMControlReferenceCb.m file which is the callback function for the ACIM Control reference block which can be found in the path `C:\Program Files\MATLAB\R2023b\toolbox\mcb\mcbblocks\+mcb\+internal\ACIMControlReferenceCb.m`
+
+```matlab
+function dlgSett = ACIMControlReferenceCb(objHandle)
+% Mask initialization function for MCB/ACIM Control Reference block.
+%
+% Inputs:
+%   objHandle   : Current block handle obtained by gcbh command
+
+
+%   Copyright 2020-2021 The MathWorks, Inc.
+
+%%
+%Do not run initialization code if model is running
+invalidStatus = {'external','running','compiled','restarting','paused','terminating'};
+if any(strcmpi(get_param(bdroot(objHandle),'SimulationStatus'),invalidStatus))
+    
+    %Return dummy values
+    dlgSett.Id_ref       = 1;
+    dlgSett.Id_gain      = 1;
+    dlgSett.Iq_gain      = 1;
+    dlgSett.Slip_speed   = 1;
+    dlgSett.I_max        = 1;
+    dlgSett.N_base_PU    = 1;
+    
+    return
+end
+
+% Get system info
+this = get_param(objHandle,'Object');
+sys = getfullname(objHandle);
+
+% Get Dialog Settings
+mEnables = get_param(objHandle,'MaskEnables');
+mVisibilities = get_param(objHandle,'MaskVisibilities');
+mValues = get_param(objHandle,'MaskValues');
+
+% Resolve parameters
+acim.p          = 1;
+acim.Llr        = 1;
+acim.Lm         = 1;
+acim.FluxRated  = 1;
+acim.N_rated    = 1;
+acim.N_base     = 1;
+acim.I_max      = 1;
+
+try
+    acim.p          = double(slResolve(this.polePairs,objHandle));
+    acim.Llr        = double(slResolve(this.Llr,objHandle));
+    acim.Lm         = double(slResolve(this.Lm,objHandle));
+    acim.FluxRated  = double(slResolve(this.FluxRated,objHandle));
+    acim.N_rated    = double(slResolve(this.N_rated,objHandle));
+    acim.N_base     = double(slResolve(this.N_base,objHandle));
+    acim.I_max      = double(slResolve(this.I_sat,objHandle));
+catch
+    %     Do nothing
+end
+
+% Compute required inductances
+acim.Lr = acim.Llr + acim.Lm;
+
+% Initialize PU values
+dlgSett.I_base_PU = 1;
+dlgSett.N_base_PU = 1;
+dlgSett.T_base_PU = 1;
+
+switch this.Units
+    case 'Per-Unit (PU)'
+        try
+            dlgSett.I_base_PU = double(slResolve(this.I_base,objHandle));
+        catch
+            %     Do nothing
+        end
+        dlgSett.N_base_PU = ac
+```
+
 
 This completes the speed control system.
 Next: [Current control](Current_control.md)
