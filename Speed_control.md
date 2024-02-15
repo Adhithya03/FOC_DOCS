@@ -64,18 +64,17 @@ The below code is from the ACIMControlReferenceCb.m file which is the callback f
 
 
 Here are the equations used in the code (extracted from the code for easy reference)
-
 $$L_{r} = L_{lr} + L_{m}$$
 
 $$T_{\text{base\_PU}} = \frac{3}{2} \cdot p \cdot \frac{L_{m}}{L_{r}} \cdot \text{FluxRated} \cdot I_{\text{base\_PU}}$$
 
 $$N_{\text{base\_PU}} = \frac{60}{2\pi}$$
 
-$$I_{q_{\text{gain}}} = \frac{T_{\text{base\_PU}}}{\left(\frac{3}{2} \cdot p \cdot \frac{L_{m}^2}{L_{r}}\right) \cdot I_{\text{base\_PU}}^2}$$
+$$Iq_{\text{gain}} = \frac{T_{\text{base\_PU}}}{\left(\frac{3}{2} \cdot p \cdot \frac{L_{m}^2}{L_{r}}\right) \cdot I_{\text{base\_PU}}^2}$$
 
-$$I_{d_{\text{ref}}} = \frac{\text{FluxRated}}{L_{m}} \cdot I_{\text{base\_PU}}$$
+$$Id_{\text{ref}} = \frac{\text{FluxRated}}{L_{m}} \cdot I_{\text{base\_PU}}$$
 
-$$I_{d_{\text{gain}}} = I_{d_{\text{ref}}} \cdot \frac{N_{\text{rated}}}{N_{\text{base\_PU}}}$$
+$$Id_{\text{gain}} = Id_{\text{ref}} \cdot \frac{N_{\text{rated}}}{N_{\text{base\_PU}}}$$
 
 $$\text{Slip\_speed} = \frac{N_{\text{base}} - N_{\text{rated}}}{N_{\text{base\_PU}}}$$
 
