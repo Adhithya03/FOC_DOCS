@@ -191,4 +191,4 @@ end
 
 
 This completes the speed control system.
-Next: [Current control](Current_control.md)
+Next: [Current control](./Current\_control.md)
