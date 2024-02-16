@@ -80,6 +80,29 @@ We now move to the Input Scaling block, So this block has 3 inputs namely
 2. Ib_ADC
 3. VI_fb
 
-new file for flux observer block
+And 3 outputs namely
+1. Iab_meas_PU
+2. POS_PU
+3. Speed_PU
 
-[Flux Observer](./Flux_Observer.md)
+
+![alt text](image-7.png)
+
+This block does 2 this mainly
+1. Data type conversion of received signals from ADCs.
+2. Estimation of the stator flux angle (position) and speed of the motor. (since we are doing sensorless i.e. we only measure the motor currents and not the rotor position and speed) 
+
+**1. Current Measurements** 
+
+- This block is rather simple compared to next block (Flux Observer) which we will see later.
+
+- Now into the current measurements block
+
+![alt text](image-8.png)
+
+- We the 2 inputs Ia_ADC and Ib_ADC are converted to int32 and subtracted from Ia_offset and Ib_offset respectively.
+
+- The Ia_offset and Ib_offset are calibrated by us. 
+
+
+Read more about how Flux Observer works [Flux Observer](./Flux_Observer.md)
