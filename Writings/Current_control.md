@@ -74,3 +74,12 @@ This block just reads motor's current Ia, and Ib from ADC_c and ADC_b respective
 ![alt text](image-6.png)
 
 
+We now move to the Input Scaling block, So this block has 3 inputs namely
+
+1. Ia_ADC
+2. Ib_ADC
+3. VI_fb
+
+new file for flux observer block
+
+[Flux Observer](./Flux_Observer.md)
