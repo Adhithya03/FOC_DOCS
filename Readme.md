@@ -6,7 +6,7 @@
 1. [HW_Interrupt](./Writings/HW_Interrupt.md)
 2. [Serial Recieve](./Writings/Serial_Receive.md)
 3. [Speed control](./Writings/Speed_control.md)
-4. [Current Control](./Writings/Current_Control.md)
+4. [Current Control](./Writings/Current_control.md)
 5. [Inverter and motor](./Writings/InverterMotor.md)
 
 ---
