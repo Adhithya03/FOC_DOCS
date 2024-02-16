@@ -17,5 +17,5 @@
 
 ```
 !\[alt text\]\((.*?)\)
-![alt text](./images/$1)
+![alt text](../images/$1)
 ```
