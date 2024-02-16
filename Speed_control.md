@@ -1,8 +1,8 @@
 # Speed control
 
-![alt text](image-18.png)
+![alt text](./images/image-18.png)
 
-![alt text](image-14.png)
+![alt text](./images/image-14.png)
 
 I will refer to numbers in the image above to explain follow along.
 
@@ -28,7 +28,7 @@ Ts_speed        = 30*Ts
 **Numbered 3**
 It's the Discrete PID Controller with anti-windup block which takes speed_ref and speed_fb as input and generates torque_ref as output.
 
-![alt text](image-19.png)
+![alt text](./images/image-19.png)
 
 more closer look into the PID block
 
@@ -42,7 +42,7 @@ The reset signal is level triggered
 
 Source: Docs of Discrete PID Controller with anti-windup block (which can be opened by right clicking on the block and clicking on the help)
 
-![alt text](image-20.png)
+![alt text](./images/image-20.png)
 
 4. Initial condition of the integrator is set to 0.0
 
@@ -52,7 +52,7 @@ is a port which is from current motor speed feedback value estimated by the Spee
 
 **Numbered 5**
 
-![alt text](image-21.png)
+![alt text](./images/image-21.png)
 
 ACIM Control reference, This is inbuilt block in the ACIM Control library which takes torque_ref and speed_ref as input and generates Isd_ref and Isq_ref as output, which are the reference values for the current control loop.
 

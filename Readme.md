@@ -11,4 +11,4 @@
 
 ---
 
-![alt text](image-6.png)
+![alt text](./images/image-6.png)
