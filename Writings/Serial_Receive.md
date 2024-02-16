@@ -54,3 +54,5 @@ As you might already know, serial communication has data arranged in time. We sa
 The four control inputs are stored in a special block called **data store write block** (number 4 in the image). This block is not specific to C2000; it is a general Simulink block.
 
 This is self-explanatory: the demultiplexed data and the speed reference, which came directly, are stored in a global variable-like block that will be read by the control system and updated wherever it is referenced.
+
+**Next block:** [Speed control system](./Speed_control.md)
