@@ -158,3 +158,11 @@ IIR_filter_speed.delay_ss       = 4*IIR_filter_speed.time_const;
 
 ## Control_System
 
+ ![alt text](image-16.png)
+
+Here is where actual control system is implemented. All the values we calculated in the previous block are used here, Idq_ref, Iab_meas_PU, POS_PU, Speed_PU, and the output of this block is the voltage V_abc reference for the inverter.
+
+
+ ![alt text](image-17.png)
+
+ 
