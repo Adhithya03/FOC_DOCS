@@ -136,3 +136,25 @@ This block does 2 this mainly
 
 - The estimated stator flux position is then fed to the `Speed Estimation` block which estimates the speed of the motor $\omega$ this is also an in-built block in the simulink library. If you want to know more about this block you can read about it [here](./Speed_Estimation.md)
 
+- The estimated speed goes through low pass filter to remove high frequency noise, and the filter parameters are as follows
+
+```matlab
+% IIR Filter for speed
+IIR_filter_speed.type           = 'Low-pass';
+IIR_filter_speed.min_speed      = 50; %rpm
+IIR_filter_speed.f_cutoff       = IIR_filter_speed.min_speed*acim.p/(120/2); %Hz
+IIR_filter_speed.coefficient    = 2*pi*Ts*IIR_filter_speed.f_cutoff/(2*pi*Ts*IIR_filter_speed.f_cutoff + 1);
+IIR_filter_speed.time_const     = 1/(2*pi*IIR_filter_speed.f_cutoff);
+IIR_filter_speed.delay_ss       = 4*IIR_filter_speed.time_const;
+```
+
+- Now as you see in the image above the estimated stator flux's speed is subtracted with slip speed to get the rotor speed.
+  - Let's look at an example to understand this better.
+    - Say Stator speed  = 1pu,
+    - Slip speed = 0.1 pu (we know this from slip speed estimation block we will see next)
+    - Rotor speed = 1 - 0.1 = 0.9 pu
+  - This is how we get the rotor speed.
+- Then we are dividing my pole pairs to get the mechanical speed of the motor from electrical speed.
+
+## Control_System
+
