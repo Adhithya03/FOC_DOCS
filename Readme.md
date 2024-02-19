@@ -14,8 +14,3 @@
 ![alt text](./images/image-6.png)
 
 ---
-
-```
-!\[alt text\]\((.*?)\)
-![alt text](../images/$1)
-```

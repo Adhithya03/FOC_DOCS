@@ -92,7 +92,7 @@ This block does 2 this mainly
 1. Data type conversion of received signals from ADCs.
 2. Estimation of the stator flux angle (position) and speed of the motor. (since we are doing sensorless i.e. we only measure the motor currents and not the rotor position and speed) 
 
-**1. Current Measurements** 
+#### 1. Current Measurements
 
 - This block is rather simple compared to next block (Flux Observer) which we will see later.
 
@@ -104,5 +104,33 @@ This block does 2 this mainly
 
 - The Ia_offset and Ib_offset are calibrated by us. 
 
+- The subtracted values goes to `DataType` block. We shall see what this block does.
 
-Read more about how Flux Observer works [Flux Observer](./Flux_Observer.md)
+![alt text](image-9.png)
+
+- There are 3 gain blocks where the input values are multipled by 
+  - 1. Get ADC voltage  target.ADC_Vref /target.ADC_MaxCount
+    - Where target.ADC_Vref = 3.3V and target.ADC_MaxCount = 4096 for our case.
+  - 2. Get Currents 1/inverter.ISenseVoltPerAmp
+    - inverter.ISenseVoltPerAmp = inverter.ISenseVoltPerAmp * inverter.ADCGain
+  - 3. PU_Conversion 1/PU_System.I_base of our motor.
+
+
+#### 2. Position and Speed measurements
+
+![alt text](image-10.png)
+
+
+- Let's just recap what signal is entering this block.
+
+  - VI_fb is the motor voltage and current both in $\alpha \beta$ frame of reference.
+  - With the help of these signals we can estimate the rotor position and speed of the motor.
+
+![alt text](image-11.png)
+
+- As we said both voltages and currents come through port 1 shown in the image above. 
+- These go through high pass filter for removing low frequency noise.
+  - Filter coeff. of this highpass filter is calcuated thusly can be found in `mcb_acim_foc_sensorless_f2879d_data.m` file and is as 
+  - $\text{Filter coeff.} = \frac{2\pi T_s f_{cutoff}}{2\pi T_s f_{cutoff} + 1}$
+- This filtered signals are then fed to the `Flux Observer` block which estimates stator flux angle. This is an in-built block in the simulink library. If you want to know more about this block you can read about it [here](./Flux_Observer.md)
+
