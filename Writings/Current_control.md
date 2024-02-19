@@ -132,5 +132,7 @@ This block does 2 this mainly
 - These go through high pass filter for removing low frequency noise.
   - Filter coeff. of this highpass filter is calcuated thusly can be found in `mcb_acim_foc_sensorless_f2879d_data.m` file and is as 
   - $\text{Filter coeff.} = \frac{2\pi T_s f_{cutoff}}{2\pi T_s f_{cutoff} + 1}$
-- This filtered signals are then fed to the `Flux Observer` block which estimates stator flux angle. This is an in-built block in the simulink library. If you want to know more about this block you can read about it [here](./Flux_Observer.md)
+- This filtered signals are then fed to the `Flux Observer` block which estimates stator flux position. This is an in-built block in the simulink library. If you want to know more about this block you can read about it [here](./Flux_Observer.md)
+
+- The estimated stator flux position is then fed to the `Speed Estimation` block which estimates the speed of the motor $\omega$ this is also an in-built block in the simulink library. If you want to know more about this block you can read about it [here](./Speed_Estimation.md)
 
