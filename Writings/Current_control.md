@@ -192,11 +192,11 @@ After we get theta that is stator flux position either in the open loop or the c
 
 ![alt text](image-20.png)
 
-Actually the current controllers are implemented in the `Control_System` with all the debug signals.
+The current controllers are implemented in the `Control_System` with all the debug signals.
 
 ![alt text](image-19.png)
 
-For the sake of explanation I have removed all the debuggings and the signals which can distract us from the main goal of understanding the current controllers.
+For the sake of explanation I have removed all the debugging signals and the signals which can distract us from the main goal of understanding the current controllers.
 
 The inputs to this block are
 
