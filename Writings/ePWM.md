@@ -2,10 +2,6 @@
 
 enhanced Pulse Width Modulation (ePWM) is a module in Texas Instruments' TMS320F28379D microcontroller. 
 
-![alt text](image-26.png)
-
-
-
 ### Tabs
 
 - **ePWMA/B**: Configures settings specific to each PWM channel (A or B), such as duty cycle.
@@ -19,7 +15,10 @@ enhanced Pulse Width Modulation (ePWM) is a module in Texas Instruments' TMS320F
 
 
 
-### General
+### General tab
+
+![alt text](image-26.png)
+
 
 - **Module**: Identifies the specific ePWM module being configured (ePWM1 in this case).
 - **ePWMLink TBPRD**: Determines if the Timer Period (TBPRD) is linked with another module. "Not Linked" means it operates independently.
@@ -36,7 +35,7 @@ enhanced Pulse Width Modulation (ePWM) is a module in Texas Instruments' TMS320F
 - **Enable swap module A and B**: Allows swapping the outputs of modules A and B, not enabled in this case.
 
 ## Counter Compare
-
+![alt text](image-27.png)
 The "Counter Compare" tab in the ePWM module configuration for a C2000 processor in Simulink focuses on settings related to comparing the PWM counter value against specified values (CMPA, CMPB, CMPC, and CMPD). These comparisons are crucial for defining the duty cycle of the PWM signals. Let's break down each parameter in this section:
 
 ### Counter Compare Parameters
