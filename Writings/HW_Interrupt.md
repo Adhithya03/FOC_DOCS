@@ -1,12 +1,10 @@
 ### HW Interrupt: A Closer Look
 
-Let's dive deeper into this block.
-
 
 
 ![alt text](../images/image-1.png)
 
-Before we proceed, did you notice the small icon with stacked squares? This icon indicates that the HW\_Interrupt block will behave differently in simulation mode and code generation mode.
+The small icon with stacked squares on the block indicates that the HW\_Interrupt block will behave differently in simulation mode and code generation mode.
 
 #### Simulation Mode vs. Code Generation Mode
 

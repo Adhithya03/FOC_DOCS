@@ -1,5 +1,6 @@
 # F.O.C. Documentation
 
+This is the documentation matlab simulink model of the sensorless Field Oriented Control (F.O.C.) of induction machine with the help of C2000 series, F2879D delphino launchpad by Texas Instruments.
 
 ### List of each sub-system and their documentation, Click on it.
 
