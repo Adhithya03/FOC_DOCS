@@ -190,5 +190,51 @@ end
 ```
 
 
+## DQ limiter block
+
+
+![alt text](image-41.png)
+
+For DQ equivalence:
+$$\text{mag}^{ref} = \sqrt{(\text{d}^{ref})^2 + (\text{q}^{ref})^2}$$
+
+When \(\text{mag}^{ref} > \text{x}_{max}\):
+$$\text{d}^{sat} = \frac{\text{d}^{ref}}{\text{mag}^{ref}} \text{x}_{max}$$
+$$\text{q}^{sat} = \frac{\text{q}^{ref}}{\text{mag}^{ref}} \text{x}_{max}$$
+
+When \(\text{mag}^{ref} \leq \text{x}_{max}\):
+$$\text{d}^{sat} = \text{d}^{ref}$$
+$$\text{q}^{sat} = \text{q}^{ref}$$
+
+Where, \(\text{x}_{max}\) is the saturation limit.
+
+When D-axis is prioritized:
+$$\text{mag}^{ref} = \sqrt{(\text{d}^{ref})^2 + (\text{q}^{ref})^2}$$
+$$\text{d}^{sat} = \min(\max(\text{d}^{ref}, -\text{x}_{max}), \text{x}_{max})$$
+$$\text{q}^{sat} = \text{sign}(\text{q}^{ref}) \times \min\left( \left| \text{q}^{ref} \right|, \sqrt{\text{x}_{max}^2 - (\text{d}^{sat})^2} \right)$$
+
+Where, \(\text{x}_{max}\) is the saturation limit.
+
+When Q-axis is prioritized:
+$$\text{mag}^{ref} = \sqrt{(\text{d}^{ref})^2 + (\text{q}^{ref})^2}$$
+$$\text{q}^{sat} = \min(\max(\text{q}^{ref}, -\text{x}_{max}), \text{x}_{max})$$
+$$\text{d}^{sat} = \text{sign}(\text{d}^{ref}) \times \min\left( \left| \text{d}^{ref} \right|, \sqrt{\text{x}_{max}^2 - (\text{q}^{sat})^2} \right)$$
+
+
+The above are equations from DQ limiter block in simulink. Source: Mathworks documentation
+
+The DQ limiter block in Simulink is designed to limit the magnitude of a vector represented in the d-q reference frame, which is commonly used in the analysis and control of three-phase AC machines. The d and q components represent the direct and quadrature components of a vector, usually voltage or current. 
+
+The complexity of the DQ limiter block arises from the need to maintain the original direction of the vector while limiting its magnitude. This requires more than simple clamping of the d and q components. 
+
+When the magnitude of the vector exceeds a specified saturation limit, the DQ limiter block scales down the d and q components proportionally to bring the magnitude down to the saturation limit. 
+
+However, there are situations where one component (either d or q) is more important than the other. In these cases, the DQ limiter block provides the option to prioritize one component. The prioritized component is clamped to the saturation limit if necessary, and the other component is adjusted to maintain the original direction of the vector, while ensuring that the magnitude does not exceed the saturation limit. 
+
+This adjustment is achieved using the Pythagorean theorem to calculate the maximum possible value for the non-prioritized component given the value of the prioritized component and the saturation limit. The sign function is used to maintain the original direction of the vector. This process adds to the complexity of the block, but is necessary to ensure accurate and flexible control of AC machines.
+
+
+
+
 This completes the speed control system.
 Next: [Current control](./Current\_control.md)
