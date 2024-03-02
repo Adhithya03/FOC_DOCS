@@ -1,16 +1,19 @@
 # Flux Observer block
 
+
 [Matlab DOCS on Flux observer](https://in.mathworks.com/help/mcb/ref/fluxobserver.html)
 
-![alt text](image-12.png)
+
+![image here](image-12.png)
 
 The Flux Observer block in Simulink uses a set of mathematical equations to calculate the rotor magnetic flux and the electrical position of an induction motor. These equations are derived from the fundamental principles of electromagnetism and the operation of induction motors.
 
 1. $$\psi_{\alpha}=\frac{L_r}{L_m}\int (V_{\alpha}-I_a R_s)dt-\sigma L_s I_{\alpha}$$
 
+
 This equation calculates the rotor magnetic flux along the α-axis. The term $$(V_{\alpha}-I_a R_s)$$ represents the electromotive force (EMF) induced in the stator winding due to the rotor's magnetic field along the α-axis. This is the voltage that drives the current through the inductive part of the stator winding, which in turn generates the magnetic field. The integration of this term over time, $$\int (V_{\alpha}-I_a R_s)dt$$, gives the total magnetic flux linkage in the stator winding along the α-axis, as per Faraday's law of electromagnetic induction. The term $$\frac{L_r}{L_m}$$ is a scaling factor that converts the stator flux linkage to the rotor flux, representing the proportion of the stator flux that links with the rotor and contributes to the generation of torque.
 
-2. $$\psi_{\beta}=\frac{L_r}{L_m}\int (V_{\beta}-I_b R_s)dt-\sigma L_s I_{\beta}$$
+1. $$\psi_{\beta}=\frac{L_r}{L_m}\int (V_{\beta}-I_b R_s)dt-\sigma L_s I_{\beta}$$
 
 This equation is similar to the first one but for the β-axis. It calculates the rotor magnetic flux along the β-axis, taking into account the β-axis voltage, β-axis current, stator resistance, rotor inductance, stator inductance, and total leakage factor of the induction motor.
 
