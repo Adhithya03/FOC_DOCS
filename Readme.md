@@ -6,11 +6,14 @@
 
 - [National Instrument's official PCB design tutorial](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YH7MCAW&l=en-IN)
 
+
 ## ePWM docs
 
 [ePWM](./Writings/ePWM.md)
 
+
 ### Simulink model of FOC explained
+
 
 Simulink model of the sensorless Field Oriented Control (F.O.C.) of induction machine with F23879D delphino launchpad.
 
@@ -20,8 +23,15 @@ Simulink model of the sensorless Field Oriented Control (F.O.C.) of induction ma
 4. [Current Control](./Writings/Current_control.md)
 5. [Inverter and motor](./Writings/InverterMotor.md)
 
----
 
 ![alt text](./images/image-6.png)
 
 ---
+
+### Tools used for making this documentation.
+
+- [Vscode](https://code.visualstudio.com/) for writing markdown files and previewing them.
+  - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) extension for vscode.
+  - [Github Copilot](https://copilot.github.com/) for helping me complete my code, thoughts and sentences.
+- [Github](https://github.com) obviously for hosting the documentation, and for version control.
+- [ShareX](https://getsharex.com/) for taking screenshots and annotating them.
