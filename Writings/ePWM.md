@@ -1,4 +1,11 @@
-# ePWM
+# ePWM 
+
+[ePWM Texas instrument video series](https://www.ti.com/video/series/C2000-enhanced-pulse-width-modulator.html)
+
+### ePWM modules explained
+[Time-base module](./epwm_time_base.md)
+
+### dialog box parameters explanation
 
 enhanced Pulse Width Modulation (ePWM) is a module in Texas Instruments' TMS320F28379D microcontroller. 
 

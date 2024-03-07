@@ -1,8 +1,18 @@
-# F.O.C. Documentation
+# F.O.C. Project
 
-This is the documentation matlab simulink model of the sensorless Field Oriented Control (F.O.C.) of induction machine with F23879D delphino launchpad.
+## PCB design tutorials
 
-### List of each sub-system and their documentation, Click on it.
+- [Youtube series explaining PCB design](https://www.youtube.com/watch?v=DtPCK3qGakM&list=PLVg5xjDHQldd2SjGsXRB4atrrWZ9rLCe_)
+
+- [National Instrument's official PCB design tutorial](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YH7MCAW&l=en-IN)
+
+## ePWM docs
+
+[ePWM](./Writings/ePWM.md)
+
+### Simulink model of FOC explained
+
+Simulink model of the sensorless Field Oriented Control (F.O.C.) of induction machine with F23879D delphino launchpad.
 
 1. [HW_Interrupt](./Writings/HW_Interrupt.md)
 2. [Serial Recieve](./Writings/Serial_Receive.md)
