@@ -4,7 +4,7 @@
 [Matlab DOCS on Flux observer](https://in.mathworks.com/help/mcb/ref/fluxobserver.html)
 
 
-![image here](image-12.png)
+![image here](..\images\writings_image-12.png)
 
 The Flux Observer block in Simulink uses a set of mathematical equations to calculate the rotor magnetic flux and the electrical position of an induction motor. These equations are derived from the fundamental principles of electromagnetism and the operation of induction motors.
 

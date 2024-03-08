@@ -1,5 +1,5 @@
 
-![alt text](image-6.png)
+![alt text](..\images\writings_image-6.png)
 
 
 We now move to the Input Scaling block, So this block has 3 inputs namely
@@ -14,7 +14,7 @@ And 3 outputs namely
 3. Speed_PU
 
 
-![alt text](image-7.png)
+![alt text](..\images\writings_image-7.png)
 
 This block does 2 this mainly
 1. Data type conversion of received signals from ADCs.
@@ -26,7 +26,7 @@ This block does 2 this mainly
 
 - Now into the current measurements block
 
-![alt text](image-8.png)
+![alt text](..\images\writings_image-8.png)
 
 - We the 2 inputs Ia_ADC and Ib_ADC are converted to int32 and subtracted from Ia_offset and Ib_offset respectively.
 
@@ -34,7 +34,7 @@ This block does 2 this mainly
 
 - The subtracted values goes to `DataType` block. We shall see what this block does.
 
-![alt text](image-9.png)
+![alt text](..\images\writings_image-9.png)
 
 - There are 3 gain blocks where the input values are multipled by 
   - 1. Get ADC voltage  target.ADC_Vref /target.ADC_MaxCount
@@ -46,7 +46,7 @@ This block does 2 this mainly
 
 #### 2. Position and Speed measurements
 
-![alt text](image-10.png)
+![alt text](..\images\writings_image-10.png)
 
 
 - Let's just recap what signal is entering this block.
@@ -54,7 +54,7 @@ This block does 2 this mainly
   - VI_fb is the motor voltage and current both in $\alpha \beta$ frame of reference.
   - With the help of these signals we can estimate the rotor position and speed of the motor.
 
-![alt text](image-11.png)
+![alt text](..\images\writings_image-11.png)
 
 - As we said both voltages and currents come through port 1 shown in the image above. 
 - These go through high pass filter for removing low frequency noise.

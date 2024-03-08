@@ -1,6 +1,6 @@
 # Inverter and motor
 
-![alt text](image-38.png)
+![alt text](..\images\writings_image-38.png)
 
 The inverter and motor subsystem is the final stage of the Field Oriented Control (F.O.C.).
 
@@ -14,5 +14,5 @@ In code generation mode, we use the actual motor and inverter blocks to generate
 
 And when we go into this block we see just that for code generation mode.
 
-![alt text](image-40.png)
+![alt text](..\images\writings_image-40.png)
 
