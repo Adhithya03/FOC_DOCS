@@ -2,6 +2,8 @@
 
 [ePWM Texas instrument video series](https://www.ti.com/video/series/C2000-enhanced-pulse-width-modulator.html)
 
+[C2000 academy ePWM tutorial dev.ti.com](https://dev.ti.com/tirex/explore/node?node=A__AbG33Z.DwtBrb89JWwjoTg__C2000-ACADEMY__3H1LnqB__LATEST)
+
 ### ePWM modules explained
 [Time-base module](./epwm_time_base.md)
 
