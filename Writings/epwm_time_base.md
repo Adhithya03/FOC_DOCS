@@ -1,1 +1,1 @@
-![alt text](..\images\writings_image-44.png)
+![alt text](../images/writings_image-44.png)

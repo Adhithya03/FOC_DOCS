@@ -1,18 +1,18 @@
 # SCI_tx
 
-![alt text](..\images\writings_image-29.png)
+![alt text](../images/writings_image-29.png)
 
 The debug signals [Debug_signals](./Debug_signals.md) are sent to the SCI Tx block. 
 
 # In Simulation mode
-![alt text](..\images\writings_image-30.png)
+![alt text](../images/writings_image-30.png)
 
 In simulation mode we don't need to send the debug signals to the SCI Tx block. So we use a terminator block to terminate the signals.  
 
 
 # Hardware (code generation) mode
 
-![alt text](..\images\writings_image-31.png)
+![alt text](../images/writings_image-31.png)
 
 Only when this code is running on the C2000 we need to send the data from the controller to host PC. 
 
@@ -20,15 +20,15 @@ Only when this code is running on the C2000 we need to send the data from the co
 
 ### Data_Condition_Tx
 
-![alt text](..\images\writings_image-32.png)
+![alt text](../images/writings_image-32.png)
 
 Notice a stacked squares icons, which means it has 2 different sybsystems and not according to the simlation or code generation mode. but according to the data type. one with float and fixed point data types.
 
-![alt text](..\images\writings_image-33.png)
+![alt text](../images/writings_image-33.png)
 
 
 #### Float data type
-![alt text](..\images\writings_image-34.png)
+![alt text](../images/writings_image-34.png)
 
 We are just routing the data to an inbuilt block in simulink called `Byte Pack` 
 
@@ -62,7 +62,7 @@ In summary, the data is first converted to a fixed-point data type with a specif
 
 ### Data_Logging
 
-![alt text](..\images\writings_image-37.png)
+![alt text](../images/writings_image-37.png)
 
 
 Let's go through the Simulink model and understand the purpose of each block and the overall functionality of the system:
@@ -99,6 +99,6 @@ The Counter Limited block plays a crucial role in determining when certain actio
 
 ### Do..while block.
 
-![alt text](..\images\writings_image-36.png)
+![alt text](../images/writings_image-36.png)
 
-![alt text](..\images\writings_image-35.png)
+![alt text](../images/writings_image-35.png)

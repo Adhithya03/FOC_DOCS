@@ -1,6 +1,6 @@
 # Debugging signals
 
-![alt text](..\images\writings_image-28.png)
+![alt text](../images/writings_image-28.png)
 
 - The data from various subsystems is coming through port 1, and based the int value `Debug Signal`,
 

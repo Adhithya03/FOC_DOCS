@@ -2,16 +2,16 @@ Make sure you have read the [HW\_Interrupt block](./HW\_Interrupt.md), as we wil
 
 # SCI_Rx_INT()
 
-![alt text](../images/..\images\writings_image-7.png)
+![alt text](../images/../images/writings_image-7.png)
 
 Let's delve into the Serial Receive Block, responsible for obtaining data from the laptop or host computer regarding control inputs and updating global variables. This information is then utilized by the control system to update the desired speed and other control inputs.
 
-![alt text](../images/..\images\writings_image-15.png)
+![alt text](../images/../images/writings_image-15.png)
 
 Double-clicking on the block takes us inside.
 
 
-![alt text](../images/..\images\writings_image-8.png)
+![alt text](../images/../images/writings_image-8.png)
 
 There's a lot to unpack here, but don't worry. Follow the numbered references in the image as I explain:
 
@@ -22,17 +22,17 @@ There's a lot to unpack here, but don't worry. Follow the numbered references in
 
 ### SCI_Rx (Codegen)
 
-![alt text](../images/..\images\writings_image-12.png)
+![alt text](../images/../images/writings_image-12.png)
 
 Here we see two subsystems, which have the exact same hardware block inside them and it gives its outputs to the port 1, just with a small modification in the block parameters in the data type column.
 
-![alt text](../images/..\images\writings_image-10.png)
+![alt text](../images/../images/writings_image-10.png)
 
 - The interrupt generation is complete, and the data is finally received by a hardware-specific block called CIRCV, which actually receives the data and stores it in the serial buffer, which will be read by the C2000 microcontroller.
 
 ### SCI_Rx (Simulation)
 
-![alt text](../images/..\images\writings_image-11.png)
+![alt text](../images/../images/writings_image-11.png)
 
 - Using the hardware serial reception block above was much easier. Now we have to emulate how the data will be received with all the nuances of data type conversion when running in a simulation environment, which is a bit more involved.
 
@@ -41,7 +41,7 @@ Here we see two subsystems, which have the exact same hardware block inside them
 
 - We have now completed our exploration of what's inside the **SCI_Rx** (block 2).
 
-![alt text](../images/..\images\writings_image-8.png)
+![alt text](../images/../images/writings_image-8.png)
 
 - **Data_Conditioning_Rx** (block 3) simply performs data type conversion of received data from the host computer in case of code generation or artificially emulated serial data as it would be received from the host computer.
 
