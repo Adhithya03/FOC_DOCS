@@ -85,5 +85,6 @@ After that, we transform the output reference voltage, direct and quadrature vol
 
 The alpha beta frame voltages is given to **PWM reference generator** block which is an inbuilt block in MATLAB and the various pulse width modulation techniques can be selected. For now we have selected a space vector modulation. So this block gets the V alpha V beta voltages and generates the three phase voltages in the stator frame which after scaling can be given directly to the gate pulses of the inverter.
 
+# Slip speed estimator block explained.
 
 [Slip speed estimator](./slipSpeedEstimator.md)
