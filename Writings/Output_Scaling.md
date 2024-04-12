@@ -1,6 +1,6 @@
-![alt text](../images/writings_image-21.png)
+![alt text](image-21.png)
 
-![alt text](../images/writings_image-22.png)
+![alt text](image-22.png)
 
 Pretty self-explanatory, isn't it?
 

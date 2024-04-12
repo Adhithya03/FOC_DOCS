@@ -9,7 +9,7 @@ This is where guts of FOC lies.
     - Idq_ref from the speed control system.
     - Feedback_sim signal from the inverter and motor system which is nothing but motor currents of Ia and Ib.
 
-![alt text](../images/writings_image-1.png)
+![alt text](image-1.png)
 
 
 - When we go into the current control subsystem we see there are 7 blocks in total.

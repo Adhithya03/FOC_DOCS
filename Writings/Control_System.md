@@ -1,14 +1,14 @@
 
- ![alt text](../images/writings_image-16.png)
+ ![alt text](image-16.png)
 
 Here is where actual control system is implemented. All the values we calculated in the previous block are used here, Idq_ref, Iab_meas_PU, POS_PU, Speed_PU, and the output of this block is the voltage V_abc reference for the inverter.
 
 
- ![alt text](../images/writings_image-17.png)
+ ![alt text](image-17.png)
 
 ## Open_loop_Control subsystem
 
-![alt text](../images/writings_image-18.png)
+![alt text](image-18.png)
 
 Inside the subsystem we see the position measured per unit which is the signal port 1 labeled 7 comes from the flux observer block in the previous subsystem we saw. So that is the position of the stator flux which goes to the theta only if the enable close to flag and enable flag both are 1. So you can easily verify it from the logic gates.
 
@@ -31,11 +31,11 @@ After we get theta that is stator flux position either in the open loop or the c
 
 ## Current controllers
 
-![alt text](../images/writings_image-20.png)
+![alt text](image-20.png)
 
 The current controllers are implemented in the `Control_System` with all the debug signals.
 
-![alt text](../images/writings_image-19.png)
+![alt text](image-19.png)
 
 For the sake of explanation I have removed all the debugging signals and the signals which can distract us from the main goal of understanding the current controllers.
 
@@ -84,7 +84,3 @@ https://chatkit.app/s/MBWSDeSxxSD-HjYUh4B1x
 After that, we transform the output reference voltage, direct and quadrature voltage into alpha, beta.
 
 The alpha beta frame voltages is given to **PWM reference generator** block which is an inbuilt block in MATLAB and the various pulse width modulation techniques can be selected. For now we have selected a space vector modulation. So this block gets the V alpha V beta voltages and generates the three phase voltages in the stator frame which after scaling can be given directly to the gate pulses of the inverter.
-
-# Slip speed estimator block explained.
-
-[Slip speed estimator](./slipSpeedEstimator.md)
