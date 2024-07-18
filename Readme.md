@@ -1,4 +1,24 @@
-# F.O.C. Project
+# Field the oriented control Of induction motor
+
+This repository contains explanation of the example available with motor control blockset field oriented control of induction motor. The explanation is split up into multiple files linked below and there are some other useful videos related to this project as well.
+
+### Example Simulink model of FOC explained
+
+
+Simulink model of the sensorless Field Oriented Control (F.O.C.) of induction machine with F23879D delphino launchpad.
+
+1. [HW_Interrupt](./Writings/HW_Interrupt.md)
+2. [Serial Recieve](./Writings/Serial_Receive.md)
+3. [Speed control](./Writings/Speed_control.md)
+4. [Current Control](./Writings/Current_control.md)
+5. [Inverter and motor](./Writings/InverterMotor.md)
+
+
+![alt text](./images/image-6.png)
+
+---
+
+## Other useful information used for the project
 
 ## PCB design tutorials
 
@@ -12,19 +32,6 @@
 [ePWM](./Writings/ePWM.md)
 
 
-### Simulink model of FOC explained
-
-
-Simulink model of the sensorless Field Oriented Control (F.O.C.) of induction machine with F23879D delphino launchpad.
-
-1. [HW_Interrupt](./Writings/HW_Interrupt.md)
-2. [Serial Recieve](./Writings/Serial_Receive.md)
-3. [Speed control](./Writings/Speed_control.md)
-4. [Current Control](./Writings/Current_control.md)
-5. [Inverter and motor](./Writings/InverterMotor.md)
-
-
-![alt text](./images/image-6.png)
 
 ---
 
