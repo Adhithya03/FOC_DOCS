@@ -15,7 +15,7 @@ This block just reads motor's current Ia, and Ib from ADC_c and ADC_b respective
   ![alt text](image-3.png)
 
 **In code generation mode** (real hardware mode)
-  - The signal which is Feedback_sim is useless, so it's not connected to terminator.
+  - The signal which is Feedback_sim is useless, so it's connected to terminator.
   - Instead, the real motor currents are read from the ADCs and when we go inside the block we see just that 2 special blocks which are used to read the motor currents from the ADCs. 
   - ![alt text](image-4.png)
   
