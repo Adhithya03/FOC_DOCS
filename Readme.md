@@ -3,11 +3,10 @@
 This repository has various text files explaining, the field-oriented control example from Simulink's Motor Control Blockset. It breaks down the implementation of sensorless FOC for an induction motor using the F23879D Delphino launchpad. Each component is explained step by step to help understand the practical aspects of FOC implementation.
 
 
-### Example Simulink model of FOC explained
+### Simulink model of FOC explained
 
-
-Simulink model of the sensorless Field Oriented Control (F.O.C.) of induction machine with F23879D delphino launchpad.
-
+Click any of the sub-system you would like the explanation for.
+  
 1. [HW_Interrupt](./Writings/HW_Interrupt.md)
 2. [Serial Recieve](./Writings/Serial_Receive.md)
 3. [Speed control](./Writings/Speed_control.md)
