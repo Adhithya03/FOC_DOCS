@@ -1,6 +1,6 @@
 # Field the oriented control of Induction motor
 
-This repository contains **explanation** of the example available with motor control blockset field oriented control of induction motor. The explanation is split up into multiple files linked below and there are some other useful videos related to this project as well.
+This repository has various text files explaining, the field-oriented control example from Simulink's Motor Control Blockset. It breaks down the implementation of sensorless FOC for an induction motor using the F23879D Delphino launchpad. Each component is explained step by step to help understand the practical aspects of FOC implementation.
 
 
 ### Example Simulink model of FOC explained
