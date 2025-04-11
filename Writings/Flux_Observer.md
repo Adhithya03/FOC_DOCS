@@ -36,7 +36,3 @@ This equation calculates the electrical position of the rotor, which is the angl
 These equations form a mathematical model of the induction motor that describes its electrical and mechanical behavior in terms of the voltages, currents, and magnetic fluxes. The Flux Observer block uses this model to compute the rotor flux and electrical position, which are essential parameters for controlling the motor.
 
 ---
-
-The above explanation is by GPT-4, given the equation from docs. It generated these.
-
-https://chatkit.app/s/qeLAUwXQkoj7U1FY7Rvko
